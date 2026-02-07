@@ -1,10 +1,10 @@
 from flask import Blueprint, jsonify, request, current_app
 from src.utils.database import execute_query
 
-news_bp = Blueprint('news', __name__)
+news_bp = Blueprint('news', __name__, url_prefix='/news')
 
-@news_bp.route('/', methods=['GET'])
-@news_bp.route('', methods=['GET'])
+@news_bp.route('/', methods=['GET'], strict_slashes=False)
+@news_bp.route('', methods=['GET'], strict_slashes=False)
 def get_news():
     try:
         limit = request.args.get('limit', default=10, type=int)
@@ -14,7 +14,7 @@ def get_news():
     except Exception as e:
         return jsonify({'success': False, 'error': str(e)}), 500
 
-@news_bp.route('/<int:article_id>', methods=['GET'])
+@news_bp.route('/<int:article_id>', methods=['GET'], strict_slashes=False)
 def get_article(article_id):
     try:
         query = "SELECT * FROM news_articles WHERE id = ?"
@@ -25,7 +25,7 @@ def get_article(article_id):
     except Exception as e:
         return jsonify({'success': False, 'error': str(e)}), 500
 
-@news_bp.route('/sources', methods=['GET'])
+@news_bp.route('/sources', methods=['GET'], strict_slashes=False)
 def get_sources():
     try:
         query = "SELECT DISTINCT source FROM news_articles"
@@ -33,3 +33,4 @@ def get_sources():
         return jsonify({'success': True, 'data': [s['source'] for s in sources]}), 200
     except Exception as e:
         return jsonify({'success': False, 'error': str(e)}), 500
+

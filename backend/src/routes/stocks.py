@@ -1,10 +1,10 @@
 from flask import Blueprint, jsonify, request, current_app
 from src.utils.database import execute_query
 
-stocks_bp = Blueprint('stocks', __name__)
+stocks_bp = Blueprint('stocks', __name__, url_prefix='/stocks')
 
-@stocks_bp.route('/', methods=['GET'])
-@stocks_bp.route('', methods=['GET'])
+@stocks_bp.route('/', methods=['GET'], strict_slashes=False)
+@stocks_bp.route('', methods=['GET'], strict_slashes=False)
 def get_stocks():
     try:
         query = """SELECT ticker, company_name, price, change, change_percent, volume, market_cap, pe_ratio, timestamp
@@ -16,7 +16,7 @@ def get_stocks():
     except Exception as e:
         return jsonify({'success': False, 'error': str(e)}), 500
 
-@stocks_bp.route('/<ticker>', methods=['GET'])
+@stocks_bp.route('/<ticker>', methods=['GET'], strict_slashes=False)
 def get_stock(ticker):
     try:
         query = """SELECT * FROM stock_data WHERE ticker = ? ORDER BY timestamp DESC LIMIT 1"""
@@ -27,7 +27,7 @@ def get_stock(ticker):
     except Exception as e:
         return jsonify({'success': False, 'error': str(e)}), 500
 
-@stocks_bp.route('/<ticker>/history', methods=['GET'])
+@stocks_bp.route('/<ticker>/history', methods=['GET'], strict_slashes=False)
 def get_stock_history(ticker):
     try:
         limit = request.args.get('limit', default=30, type=int)
@@ -36,3 +36,4 @@ def get_stock_history(ticker):
         return jsonify({'success': True, 'data': history, 'count': len(history)}), 200
     except Exception as e:
         return jsonify({'success': False, 'error': str(e)}), 500
+

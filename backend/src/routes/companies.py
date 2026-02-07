@@ -1,11 +1,11 @@
-﻿from flask import Blueprint, jsonify, request, current_app
+from flask import Blueprint, jsonify, request, current_app
 from src.utils.database import execute_query
 import json
 import os
 
-companies_bp = Blueprint('companies', __name__)
+companies_bp = Blueprint('companies', __name__, url_prefix='/companies')
 
-@companies_bp.route('/', methods=['GET'])
+@companies_bp.route('/', methods=['GET'], strict_slashes=False)
 def get_companies():
     '''Get all quantum companies'''
     
@@ -42,7 +42,7 @@ def get_companies():
             'error': str(e)
         }), 500
 
-@companies_bp.route('/<string:ticker>', methods=['GET'])
+@companies_bp.route('/<string:ticker>', methods=['GET'], strict_slashes=False)
 def get_company(ticker):
     '''Get a single company by ticker'''
     
@@ -96,7 +96,7 @@ def get_company(ticker):
             'error': str(e)
         }), 500
 
-@companies_bp.route('/search', methods=['GET'])
+@companies_bp.route('/search', methods=['GET'], strict_slashes=False)
 def search_companies():
     '''Search companies by name or ticker'''
     
@@ -134,3 +134,4 @@ def search_companies():
             'success': False,
             'error': str(e)
         }), 500
+

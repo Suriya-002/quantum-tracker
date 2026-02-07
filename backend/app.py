@@ -63,5 +63,12 @@ def create_app(config_class=Config):
 # Create app instance for gunicorn
 app = create_app()
 
+
+
+@app.route('/debug/routes')
+def debug_routes():
+    return jsonify({'routes': [str(r) for r in app.url_map.iter_rules()]})
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
+
