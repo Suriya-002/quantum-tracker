@@ -1,9 +1,9 @@
 from flask import Blueprint, jsonify, request, current_app
 from src.utils.database import execute_query
 
-stocks_bp = Blueprint('stocks', __name__, url_prefix='/stocks')
+stocks_bp = Blueprint('stocks', __name__)
 
-@stocks_bp.route('/', methods=['GET'], strict_slashes=False)
+@stocks_bp.route('/stocks', methods=['GET'], strict_slashes=False)
 @stocks_bp.route('', methods=['GET'], strict_slashes=False)
 def get_stocks():
     try:
@@ -36,4 +36,6 @@ def get_stock_history(ticker):
         return jsonify({'success': True, 'data': history, 'count': len(history)}), 200
     except Exception as e:
         return jsonify({'success': False, 'error': str(e)}), 500
+
+
 

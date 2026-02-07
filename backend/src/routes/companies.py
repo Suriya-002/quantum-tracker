@@ -3,7 +3,7 @@ from src.utils.database import execute_query
 import json
 import os
 
-companies_bp = Blueprint('companies', __name__, url_prefix='/companies')
+companies_bp = Blueprint('companies', __name__)
 
 @companies_bp.route('/', methods=['GET'], strict_slashes=False)
 def get_companies():
@@ -134,4 +134,5 @@ def search_companies():
             'success': False,
             'error': str(e)
         }), 500
+
 

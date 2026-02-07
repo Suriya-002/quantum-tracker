@@ -1,9 +1,9 @@
 from flask import Blueprint, jsonify, request, current_app
 from src.utils.database import execute_query
 
-news_bp = Blueprint('news', __name__, url_prefix='/news')
+news_bp = Blueprint('news', __name__)
 
-@news_bp.route('/', methods=['GET'], strict_slashes=False)
+@news_bp.route('/news', methods=['GET'], strict_slashes=False)
 @news_bp.route('', methods=['GET'], strict_slashes=False)
 def get_news():
     try:
@@ -33,4 +33,6 @@ def get_sources():
         return jsonify({'success': True, 'data': [s['source'] for s in sources]}), 200
     except Exception as e:
         return jsonify({'success': False, 'error': str(e)}), 500
+
+
 
