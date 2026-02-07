@@ -8,7 +8,7 @@ class Config:
     API_PREFIX = '/api/v1'
     
     # CORS
-    CORS_ORIGINS = ['http://localhost:5173', 'http://localhost:3000']
+    CORS_ORIGINS = ['http://localhost:5173', 'http://localhost:3000', 'https://quantum-tracker.onrender.com']
     
     # Logging
     LOG_LEVEL = 'INFO'
@@ -31,3 +31,4 @@ class Config:
     RSS_UPDATE_INTERVAL = 3600
     STOCK_UPDATE_INTERVAL = 300
     STOCK_FETCH_INTERVAL = 300
+
