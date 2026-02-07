@@ -88,22 +88,22 @@ function App() {
 
   const fetchData = async () => {
     try {
-      const newsRes = await fetch('${import.meta.env.VITE_API_URL || "http://localhost:5000"}/api/v1/news?limit=20')
+      const newsRes = await fetch('https://quantum-tracker-api-4g12.onrender.com/api/v1/news?limit=20')
       const newsData = await newsRes.json()
       if (newsData.success) setNews(newsData.data)
 
-      const stocksRes = await fetch('${import.meta.env.VITE_API_URL || "http://localhost:5000"}/api/v1/stocks')
+      const stocksRes = await fetch('https://quantum-tracker-api-4g12.onrender.com/api/v1/stocks')
       const stocksData = await stocksRes.json()
       if (stocksData.success) setStocks(stocksData.data)
 
-      const summaryRes = await fetch('${import.meta.env.VITE_API_URL || "http://localhost:5000"}/api/v1/analysis/news-summary')
+      const summaryRes = await fetch('https://quantum-tracker-api-4g12.onrender.com/api/v1/analysis/news-summary')
       const summaryData = await summaryRes.json()
       if (summaryData.success) {
         setAiSummary(summaryData.summary)
         if (summaryData.predictions) setPredictions(summaryData.predictions)
       }
 
-      const portfolioRes = await fetch('${import.meta.env.VITE_API_URL || "http://localhost:5000"}/api/v1/analysis/portfolio')
+      const portfolioRes = await fetch('https://quantum-tracker-api-4g12.onrender.com/api/v1/analysis/portfolio')
       const portfolioData = await portfolioRes.json()
       if (portfolioData.success) setPortfolio(portfolioData.data)
 
@@ -361,6 +361,7 @@ function App() {
 }
 
 export default App
+
 
 
 
