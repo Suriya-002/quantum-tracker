@@ -1,0 +1,28 @@
+﻿version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./backend:/app
+      - backend-data:/app/src/data
+    environment:
+      - FLASK_ENV=development
+      - DEBUG=True
+    command: python app.py
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    environment:
+      - VITE_API_URL=http://localhost:5000
+    command: npm run dev
+
+volumes:
+  backend-data:

@@ -1,0 +1,153 @@
+{
+  "public_companies": [
+    {
+      "name": "IonQ",
+      "ticker": "IONQ",
+      "description": "Trapped ion quantum computing - Leader in ion trap technology",
+      "website": "https://ionq.com",
+      "technology": "Trapped Ion"
+    },
+    {
+      "name": "Rigetti Computing",
+      "ticker": "RGTI",
+      "description": "Superconducting quantum processors and cloud access",
+      "website": "https://www.rigetti.com",
+      "technology": "Superconducting"
+    },
+    {
+      "name": "D-Wave Quantum",
+      "ticker": "QBTS",
+      "description": "Quantum annealing systems for optimization",
+      "website": "https://www.dwavesys.com",
+      "technology": "Quantum Annealing"
+    },
+    {
+      "name": "IBM",
+      "ticker": "IBM",
+      "description": "IBM Quantum - Eagle, Osprey, Condor processors",
+      "website": "https://www.ibm.com/quantum",
+      "technology": "Superconducting"
+    },
+    {
+      "name": "Alphabet (Google)",
+      "ticker": "GOOGL",
+      "description": "Google Quantum AI - Superconducting qubits, Sycamore processor",
+      "website": "https://quantumai.google",
+      "technology": "Superconducting"
+    },
+    {
+      "name": "Microsoft",
+      "ticker": "MSFT",
+      "description": "Azure Quantum platform and topological qubits research",
+      "website": "https://azure.microsoft.com/quantum",
+      "technology": "Topological (Research)"
+    },
+    {
+      "name": "Amazon",
+      "ticker": "AMZN",
+      "description": "AWS Braket quantum computing service",
+      "website": "https://aws.amazon.com/braket/",
+      "technology": "Cloud Platform"
+    },
+    {
+      "name": "Intel",
+      "ticker": "INTC",
+      "description": "Silicon spin qubits - Horse Ridge control chip",
+      "website": "https://www.intel.com/quantum",
+      "technology": "Silicon Spin Qubits"
+    },
+    {
+      "name": "Honeywell (Quantinuum)",
+      "ticker": "HON",
+      "description": "Quantinuum - Trapped ion systems (Honeywell + Cambridge Quantum)",
+      "website": "https://www.quantinuum.com",
+      "technology": "Trapped Ion"
+    }
+  ],
+  "private_companies": [
+    {
+      "name": "PsiQuantum",
+      "description": "Photonic quantum computing - Building fault-tolerant systems",
+      "website": "https://www.psiquantum.com",
+      "technology": "Photonic"
+    },
+    {
+      "name": "Xanadu",
+      "description": "Photonic quantum computing and PennyLane software",
+      "website": "https://www.xanadu.ai",
+      "technology": "Photonic"
+    },
+    {
+      "name": "Atom Computing",
+      "description": "Neutral atom quantum computers - 1000+ qubit systems",
+      "website": "https://atom-computing.com",
+      "technology": "Neutral Atom"
+    },
+    {
+      "name": "Pasqal",
+      "description": "Neutral atom quantum processors for optimization",
+      "website": "https://www.pasqal.com",
+      "technology": "Neutral Atom"
+    },
+    {
+      "name": "QuEra Computing",
+      "description": "Neutral atom quantum processors",
+      "website": "https://www.quera.com",
+      "technology": "Neutral Atom"
+    },
+    {
+      "name": "Infleqtion (ColdQuanta)",
+      "description": "Cold-atom quantum technology",
+      "website": "https://www.infleqtion.com",
+      "technology": "Cold Atom"
+    },
+    {
+      "name": "IQM Quantum",
+      "description": "European leader in superconducting quantum systems",
+      "website": "https://www.meetiqm.com",
+      "technology": "Superconducting"
+    },
+    {
+      "name": "Oxford Quantum Circuits",
+      "description": "Superconducting quantum computers with unique architecture",
+      "website": "https://oxfordquantumcircuits.com",
+      "technology": "Superconducting"
+    },
+    {
+      "name": "Alice & Bob",
+      "description": "Cat qubits for quantum error correction",
+      "website": "https://alice-bob.com",
+      "technology": "Cat Qubits"
+    },
+    {
+      "name": "Quantum Circuits Inc (QCI)",
+      "description": "Superconducting hardware developer",
+      "website": "https://quantumcircuits.com",
+      "technology": "Superconducting"
+    },
+    {
+      "name": "Oxford Ionics",
+      "description": "Trapped-ion quantum computing",
+      "website": "https://www.oxionics.com",
+      "technology": "Trapped Ion"
+    },
+    {
+      "name": "Quantum Motion",
+      "description": "Silicon-based quantum processors",
+      "website": "https://quantummotion.tech",
+      "technology": "Silicon"
+    },
+    {
+      "name": "ORCA Computing",
+      "description": "Photonic quantum computing",
+      "website": "https://www.orcacomputing.com",
+      "technology": "Photonic"
+    },
+    {
+      "name": "Quandela",
+      "description": "Photonic quantum technology",
+      "website": "https://www.quandela.com",
+      "technology": "Photonic"
+    }
+  ]
+}

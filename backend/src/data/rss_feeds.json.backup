@@ -1,0 +1,39 @@
+﻿{
+  "quantum_news": [
+    {
+      "name": "Quantum Computing Report",
+      "url": "https://quantumcomputingreport.com/feed/",
+      "category": "news"
+    },
+    {
+      "name": "The Quantum Insider",
+      "url": "https://thequantuminsider.com/feed/",
+      "category": "news"
+    },
+    {
+      "name": "IBM Quantum Blog",
+      "url": "https://research.ibm.com/blog/category/quantum-computing/feed",
+      "category": "company"
+    },
+    {
+      "name": "D-Wave Blog",
+      "url": "https://www.dwavesys.com/feed/",
+      "category": "company"
+    },
+    {
+      "name": "Xanadu Blog",
+      "url": "https://www.xanadu.ai/blog/rss.xml",
+      "category": "company"
+    },
+    {
+      "name": "arXiv Quantum Physics",
+      "url": "http://export.arxiv.org/rss/quant-ph",
+      "category": "research"
+    },
+    {
+      "name": "Nature Quantum Information",
+      "url": "https://www.nature.com/npjqi.rss",
+      "category": "research"
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+﻿import yfinance as yf
+from datetime import datetime
+from src.utils.database import execute_query
+import logging
+
+logger = logging.getLogger('quantum_tracker')
+
+def update_all_stocks(config):
+    '''Update stock data for all quantum companies'''
+    
+    tickers = config['QUANTUM_TICKERS']
+    db_path = config['DATABASE_PATH']
+    
+    try:
+        updated = 0
+        for ticker in tickers:
+            if update_stock(ticker, db_path):
+                updated += 1
+        
+        logger.info(f'Updated {updated}/{len(tickers)} stock prices')
+        return updated
+        
+    except Exception as e:
+        logger.error(f'Error updating stocks: {str(e)}')
+        return 0
+
+def update_stock(ticker, db_path):
+    '''Update a single stock's data'''
+    
+    try:
+        stock = yf.Ticker(ticker)
+        info = stock.info
+        history = stock.history(period='1d')
+        
+        if history.empty:
+            logger.warning(f'No data available for {ticker}')
+            return False
+        
+        latest = history.iloc[-1]
+        
+        stock_data = {
+            'ticker': ticker,
+            'company_name': info.get('longName', ticker),
+            'price': float(latest['Close']),
+            'change': float(latest['Close'] - latest['Open']),
+            'change_percent': float((latest['Close'] - latest['Open']) / latest['Open'] * 100),
+            'volume': int(latest['Volume']),
+            'market_cap': info.get('marketCap', None),
+            'pe_ratio': info.get('trailingPE', None),
+            'timestamp': datetime.now().isoformat()
+        }
+        
+        # Insert into database
+        execute_query(
+            db_path,
+            '''INSERT INTO stock_data 
+               (ticker, company_name, price, change, change_percent, volume, market_cap, pe_ratio, timestamp)
+               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)''',
+            (
+                stock_data['ticker'],
+                stock_data['company_name'],
+                stock_data['price'],
+                stock_data['change'],
+                stock_data['change_percent'],
+                stock_data['volume'],
+                stock_data['market_cap'],
+                stock_data['pe_ratio'],
+                stock_data['timestamp']
+            )
+        )
+        
+        return True
+        
+    except Exception as e:
+        logger.error(f'Error updating stock {ticker}: {str(e)}')
+        return False
+
+def get_latest_stocks(db_path, limit=10):
+    '''Get latest stock data for all tickers'''
+    
+    query = '''
+        SELECT ticker, company_name, price, change, change_percent, volume, market_cap, pe_ratio, timestamp
+        FROM stock_data
+        WHERE (ticker, timestamp) IN (
+            SELECT ticker, MAX(timestamp)
+            FROM stock_data
+            GROUP BY ticker
+        )
+        ORDER BY ticker
+        LIMIT ?
+    '''
+    
+    return execute_query(db_path, query, (limit,))

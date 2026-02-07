@@ -1,0 +1,24 @@
+{
+  "quantum_news": [
+    {
+      "name": "Quantum Computing Report",
+      "url": "https://quantumcomputingreport.com/feed/",
+      "category": "industry"
+    },
+    {
+      "name": "The Quantum Insider",
+      "url": "https://thequantuminsider.com/feed/",
+      "category": "industry"
+    },
+    {
+      "name": "Business Wire Quantum",
+      "url": "https://www.businesswire.com/portal/site/home/search/?searchType=news&searchTerm=quantum+computing&searchPage=1",
+      "category": "business"
+    },
+    {
+      "name": "PR Newswire Tech",
+      "url": "https://www.prnewswire.com/rss/technology-latest-news/technology-latest-news-list.rss",
+      "category": "business"
+    }
+  ]
+}
