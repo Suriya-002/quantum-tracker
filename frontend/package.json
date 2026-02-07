@@ -1,19 +1,19 @@
 {
-  "name": "quantum-tracker-frontend",
-  "private": true,
-  "version": "0.1.0",
-  "type": "module",
-  "scripts": {
-    "dev": "npx vite",
-    "build": "npx vite build",
-    "vercel-build": "npm run build"
-  },
-  "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
-  },
-  "devDependencies": {
-    "@vitejs/plugin-react": "^4.2.1",
-    "vite": "^5.0.8"
-  }
+    "name":  "quantum-tracker-frontend",
+    "private":  true,
+    "version":  "0.1.0",
+    "type":  "module",
+    "scripts":  {
+                    "dev":  "npx vite",
+                    "build":  "rm -rf dist \u0026\u0026 vite build",
+                    "vercel-build":  "npm run build"
+                },
+    "dependencies":  {
+                         "react":  "^18.2.0",
+                         "react-dom":  "^18.2.0"
+                     },
+    "devDependencies":  {
+                            "@vitejs/plugin-react":  "^4.2.1",
+                            "vite":  "^5.0.8"
+                        }
 }
