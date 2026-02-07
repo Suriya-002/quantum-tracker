@@ -1,8 +1,12 @@
-﻿from flask import Blueprint, jsonify, request, current_app
+from flask import Blueprint, jsonify, request, current_app
 from src.utils.database import execute_query
 
 news_bp = Blueprint('news', __name__)
 
+@news_bp.route('', methods=['GET'])
+@news_bp.route('', methods=['GET'])
+@news_bp.route('', methods=['GET'])
+@news_bp.route('', methods=['GET'])
 @news_bp.route('/', methods=['GET'])
 def get_news():
     '''Get news articles with optional filters'''
@@ -96,3 +100,7 @@ def get_sources():
             'success': False,
             'error': str(e)
         }), 500
+
+
+
+

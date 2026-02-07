@@ -6,6 +6,10 @@ from src.utils.database import execute_query
 analysis_bp = Blueprint('analysis', __name__)
 
 @analysis_bp.route('/news-summary', methods=['GET'])
+@analysis_bp.route('/news-summary/', methods=['GET'])
+@analysis_bp.route('/news-summary/', methods=['GET'])
+@analysis_bp.route('/news-summary/', methods=['GET'])
+@analysis_bp.route('/news-summary/', methods=['GET'])
 def get_news_summary():
     try:
         news = execute_query(
@@ -33,6 +37,10 @@ def get_news_summary():
         return jsonify({'success': False, 'error': str(e)}), 500
 
 @analysis_bp.route('/portfolio', methods=['GET'])
+@analysis_bp.route('/portfolio/', methods=['GET'])
+@analysis_bp.route('/portfolio/', methods=['GET'])
+@analysis_bp.route('/portfolio/', methods=['GET'])
+@analysis_bp.route('/portfolio/', methods=['GET'])
 def get_portfolio_analysis():
     try:
         analysis = analyze_portfolio(current_app.config['DATABASE_PATH'])
@@ -40,3 +48,7 @@ def get_portfolio_analysis():
     except Exception as e:
         current_app.logger.error(f'Portfolio error: {e}')
         return jsonify({'success': False, 'error': str(e)}), 500
+
+
+
+

@@ -1,9 +1,13 @@
-﻿from flask import Blueprint, jsonify, request, current_app
+from flask import Blueprint, jsonify, request, current_app
 from src.services.stock_fetcher import get_latest_stocks
 from src.utils.database import execute_query
 
 stocks_bp = Blueprint('stocks', __name__)
 
+@stocks_bp.route('', methods=['GET'])
+@stocks_bp.route('', methods=['GET'])
+@stocks_bp.route('', methods=['GET'])
+@stocks_bp.route('', methods=['GET'])
 @stocks_bp.route('/', methods=['GET'])
 def get_stocks():
     '''Get latest stock data for all quantum companies'''
@@ -81,3 +85,7 @@ def get_stock_history(ticker):
             'success': False,
             'error': str(e)
         }), 500
+
+
+
+
