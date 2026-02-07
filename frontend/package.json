@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "npx vite",
-    "build": "npx vite build"
+    "build": "npx vite build",
+    "vercel-build": "npm run build"
   },
   "dependencies": {
     "react": "^18.2.0",
