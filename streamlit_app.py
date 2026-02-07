@@ -124,7 +124,7 @@ def fetch_news():
     for feed_url, source in feeds:
         try:
             feed = feedparser.parse(feed_url)
-            for entry in feed.entries[:15]:
+            for entry in feed.entries[:50]:
                 title = (entry.get("title") or "").lower()
                 summary = (entry.get("summary") or "").lower()
 
@@ -140,7 +140,7 @@ def fetch_news():
                         entry.get("title", ""),
                         entry.get("link", ""),
                         source,
-                        str(published)[:10],
+                        str(published),
                         (entry.get("summary") or "")[:600],
                         datetime.utcnow().isoformat(),
                         category
@@ -222,7 +222,7 @@ def fetch_stocks_historical(days=60):
 @st.cache_data(ttl=300)
 def get_news(limit=20):
     return pd.read_sql_query(
-        "SELECT * FROM news_articles ORDER BY id DESC LIMIT ?",
+        "SELECT * FROM news_articles ORDER BY published_date DESC, id DESC LIMIT ?",
         conn,
         params=(int(limit),)
     )
@@ -576,3 +576,6 @@ with st.sidebar:
 
     st.markdown("---")
     st.caption("Last updated (UTC): " + datetime.utcnow().strftime("%Y-%m-%d %H:%M"))
+
+
+
